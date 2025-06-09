@@ -1,0 +1,88 @@
+
+contexts:
+  - name: Alloy
+    domainVisionStatement: To test a model.
+    meta:
+      "\U0001F465 Owner:": '[Pulkit Agrawal]()'
+    terms:
+      - name: sig
+        definition: Is a set. It represents a model. Equivalent to a class in OOP.
+        examples:
+          - sig Person {}
+          - sig Car {} 
+        aliases: 
+          - signature, class
+      - name: atom
+        definition: An instance of a sig.
+        examples:
+          - Person$0, Person$1, and so on.
+          - Car$0, Car$1, and so on.
+        aliases:
+          - instance
+      - name: field
+        definition: the relation between two atoms, as specified in the signature
+        aliases:
+          - relation
+      - name: var
+        definition: >-
+          By default, in Alloy the value of all signatures and relations is immutable. 
+          To declare a mutable (or variable) signature just add the `var` keyword before the signature declaration.
+        examples:
+          - None.
+      - name: pred
+        definition: A predicate is a named formula that will only hold when invoked (for example in a fact).
+        examples:
+          - pred empty {
+            some Trash and       // guard
+            after no Trash and   // effect on Trash
+            File' = File - Trash // effect on File
+            }
+        aliases: 
+          - predicate
+      - name: fact
+        definition: An imposed contrstaint that will always be true. It elimitaes all possibilities which are not true.
+        examples:
+          - the initial state of the system will be that it has no trash
+          - fact init {
+            no Trash
+            }
+      - name: after
+        definition: To evaluate a formula in the next state we precede it with the temporal operator `after`.
+      - name: guard
+        definition: A condition to check if an event can occur in the current state of the system
+      - name: effect
+        definition: A check to see if the next state of the system after the occurance of the event is valid.
+      - name: conjunction
+        aliases: 
+          - "&&"
+          - and
+      - name: negation
+        aliases: 
+          - '!'
+          - not
+      - name: disjunction
+        aliases:
+          - '||'
+          - or
+      - name: implication
+        aliases:
+          - "=>"
+          - implies
+      - name: equivance
+        aliases:
+          - iff
+          - "<=>"
+      - name: in
+        definition: Keyword. Tests for set inclusion and not set membership.
+        example:
+          - f in Trash
+      - name: run
+        definition: A command that instructs the Analyzer to check the satisfiability of the formula 
+          (and the declared facts), yielding a satisfying instance if that is the case.
+      - name: check
+        definition: A command that instructs the Analyzer to check the validity of the formula 
+          (assuming the declared facts to be true), yielding a counter-example instance if that is not the case.
+        
+      
+
+
