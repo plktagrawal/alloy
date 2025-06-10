@@ -74,7 +74,7 @@ contexts:
           - "<=>"
       - name: in
         definition: Keyword. Tests for set inclusion and not set membership.
-        example:
+        examples:
           - f in Trash
       - name: run
         definition: A command that instructs the Analyzer to check the satisfiability of the formula 
